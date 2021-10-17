@@ -8,7 +8,7 @@ const RestaurantSchema = new mongoose.Schema({
     cuisine: [String],
     restaurantTimings: String,
     contactNumber: Number,
-    website: Number,
+    website: String,
     popularDishes: [String],
     averageCost: Number,
     amenities: [String],
@@ -20,14 +20,8 @@ const RestaurantSchema = new mongoose.Schema({
         type: mongoose.Types.ObjectId,
         ref: "Menus",
     },
-    reviews: {
-        type: mongoose.Types.ObjectId,
-        ref: "Reviews",
-    },
-    photos: {
-        type: mongoose.Types.ObjectId,
-        ref: "Images",
-    },
+    reviews: [{ type: mongoose.Types.ObjectId, ref: "Reviews" }],
+    photos: { type: mongoose.Types.ObjectId, ref: "Images" },
 },
 {
     timestamps: true,
